@@ -1,0 +1,24 @@
+services:
+  proxy-apache2:
+    # image: ubuntu/apache2:2.4-20.04_beta
+    image: rougeo/proxy:0.0.1
+    container_name: apache_proxy
+    ports:
+      - 80:80
+    volumes:
+      - ./proxy_app:/srv/www
+      - ./apache2.conf:/etc/apache2/apache2.conf
+    networks:
+      - default
+
+  webapp:
+    image: rougeo/app-unc:0.0.2
+    container_name: webapp
+    # ports:
+    #   - 8091:8080
+    networks:
+      - default
+
+networks:
+  default:
+    name: apache_proxy_network
