@@ -1,0 +1,58 @@
+
+services:
+  apache-1:
+    image: ubuntu/apache2:2.4-20.04_beta
+    container_name: server_1
+    ports:
+      - 8088:80
+    networks:
+      - default
+      - conakry
+    volumes:
+      - ./site1:/var/www/html
+  apache-2:
+    image: ubuntu/apache2:2.4-20.04_beta
+    container_name: server_2
+    ports:
+      - 8089:80
+    networks:
+      - default
+    volumes:
+      - ./site2:/var/www/html
+
+  apache-3:
+    image: php:8.3.6-apache
+    container_name: server_3
+    ports:
+      - 8090:80
+    networks:
+      - default
+    volumes:
+      - ./site3:/var/www/html
+
+
+  nginx-1:
+    image: nginx:mainline-alpine-otel
+    ports:
+      - 8091:80
+    networks:
+      - default
+    volumes:
+      - ./site2:/usr/share/nginx/html
+      - unc-data:/data-test
+
+  
+volumes:
+  unc-data:
+    name: unc-data
+    driver: local
+
+networks:
+  default:
+    name: unc-network
+    driver: bridge
+    external: false
+  conakry:
+    external: true
+      
+  

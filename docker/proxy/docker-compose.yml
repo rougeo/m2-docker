@@ -1,0 +1,15 @@
+services:
+  proxy-apache2:
+    image: ubuntu/apache2:2.4-20.04_beta
+    container_name: apache_proxy
+    ports:
+      - 80:80
+    volumes:
+      - ./proxy_app:/var/www/html
+      - ./apache2.conf:/etc/apache2/apache2.conf
+    networks:
+      - default
+
+networks:
+  default:
+    name: apache_proxy_network
