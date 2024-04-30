@@ -1,0 +1,36 @@
+services:
+  webapp:
+    image: rougeo/app-unc:0.0.3
+    ports:
+      - 8091:8080
+    volumes:
+      - ./nginx-app:/python-unc
+
+  nginx-1:
+    image: nginx:mainline-alpine-otel
+    ports:
+      - 8090:80
+    volumes:
+      - ./nginx-app:/usr/share/nginx/html
+
+
+  apache-3:
+    image: ubuntu/apache2:2.4-20.04_beta
+    container_name: server_3
+    ports:
+      - 8092:80
+    volumes:
+      - ./nginx-app:/var/www/html
+
+      # /var/www/html
+
+
+
+
+
+
+
+
+    # volumes:
+    #   - ./site2:/usr/share/nginx/html
+    #   - unc-data:/data-test

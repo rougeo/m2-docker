@@ -1,0 +1,98 @@
+[
+    {
+        "Id": "sha256:f4baae64c46e59de605bf7090700bec6cd07ba30ec1e48b1dffd9fcc1e825ed1",
+        "RepoTags": [
+            "rougeo/app-unc:0.0.3"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2024-04-30T18:58:49.994538924Z",
+        "Container": "",
+        "ContainerConfig": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.3",
+                "PYTHON_PIP_VERSION=24.0",
+                "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/dbf0c85f76fb6e1ab42aa672ffca6f0a675d9ee4/public/get-pip.py",
+                "PYTHON_GET_PIP_SHA256=dfe9fd5c28dc98b5ac17979a953ea550cec37ae1b47a5116007395bfacff2ab9"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "python -m http.server 8080"
+            ],
+            "ArgsEscaped": true,
+            "Image": "",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/python-unc",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 57096437,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/httg1kckczvds8xnjdfpsbtqo/diff:/var/lib/docker/overlay2/c469ebf27ba4903a0964631c704d043fc14acb9b489cea5c7c3b5f94f8c1a165/diff:/var/lib/docker/overlay2/ef5af1bcb28152d8dc20a6499fa583b66deaf92da627f8031846a64abc455ac2/diff:/var/lib/docker/overlay2/7015f9b4bf4c831a590b677cd904a29058bc3cedb4a9373a7b3fc917ea19813e/diff:/var/lib/docker/overlay2/3f91356a6e056e5314462d6895321fbbd59bb7ef3b23eb300fe5a88cc767239b/diff:/var/lib/docker/overlay2/b3512055a7304bd563080521cb5d214846b2edf08ef98671ba5e7c199dd798f1/diff",
+                "MergedDir": "/var/lib/docker/overlay2/y0a8838mecv6z4me3mkpd6cfd/merged",
+                "UpperDir": "/var/lib/docker/overlay2/y0a8838mecv6z4me3mkpd6cfd/diff",
+                "WorkDir": "/var/lib/docker/overlay2/y0a8838mecv6z4me3mkpd6cfd/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:d4fc045c9e3a848011de66f34b81f052d4f2c15a17bb196d637e526349601820",
+                "sha256:4c9c2b9681abb404a680f956d25a7c0475872af4502ce47cdec2a2686f33d872",
+                "sha256:80fef791f8cf38d8141a2963e4c83b8f5432c677137c657178d84c55f77e1476",
+                "sha256:6c673d8c5e6c9efe162a8babbeaf3b6eac486ced1d36fcf33ae80388a6744c5c",
+                "sha256:d46b5001af7f7573102bc997debe285c1d57558094abbd2d66b8399e1dea4a67",
+                "sha256:de706939f5560cc48c0400df3f22bec9d6ce970f651db35820f8fed04cec8b48",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2024-04-30T19:49:46.039744973Z"
+        }
+    }
+]
