@@ -1,0 +1,67 @@
+# version: "3.9"
+services:
+
+  site-2:
+    image: ubuntu/apache2:2.4-20.04_beta
+    ports:
+      - 8082:80
+    volumes:
+      - ./site2/index.html:/var/www/html/index.html
+    networks:
+      - default
+
+  # site-3:
+  #   build: site3
+  #   image: rougeo/nginx:1.26.0-alpine3.19-custom
+  #   ports:
+  #     - 8083:80
+  #   volumes:
+  #     - ./site3:/usr/share/nginx/html:ro
+  #   networks:
+  #     - default
+
+  # site-4:
+  #   build: pythonServer
+  #   image: rougeo/toto:0.0.1
+  #   ports:
+  #     - 8084:8080
+  #   volumes:
+  #     - ./site4:/python-unc
+  #   networks:
+  #     - default
+
+  site-5:
+    image: python:3.12.3-alpine
+    command: python -m http.server 8081
+    container_name: site5
+    working_dir: /webapp
+    volumes:
+      - ./site5:/webapp
+    deploy:
+      resources:
+        limits:
+          cpus: '0.01'
+          memory: 500M
+    networks:
+      default:
+        ipv4_address: 172.27.0.19
+      proxy-net:
+    labels:
+      - groupe.name=groupe-5
+  # proxy:
+  #   image: test:v0
+  #   ports:
+  #     - 8080:8080
+  #   networks:
+  #     - default
+
+networks:
+  default:
+    name: website-nt
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.27.0.0/16
+          gateway: 172.27.0.1
+  proxy-net:
+    external: true

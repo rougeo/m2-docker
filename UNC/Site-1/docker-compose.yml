@@ -1,0 +1,16 @@
+services:
+  site-1:
+    build: .
+    image: rougeo/site1:0.0.1
+    container_name: site1.webapp
+    volumes:
+      - ./site1:/var/www/html
+    networks:
+      default:
+      proxy-net:
+        ipv4_address: 172.20.0.21
+networks:
+  default:
+    name: site1-network
+  proxy-net:
+    external: true
